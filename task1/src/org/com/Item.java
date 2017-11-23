@@ -17,14 +17,14 @@ public class Item {
 	@Column(name = "item_qty")
 	private int qty;
 
-	static int pocductCount;
+	static int productCount;
 	static {
-		Item.pocductCount = 0;
+		Item.productCount = 0;
 	}
 
 	public Item(int id, String name, int qty) {
 		super();
-		Item.pocductCount++;
+		Item.productCount++;
 		this.id = id;
 		this.name = name;
 		this.qty = qty;
