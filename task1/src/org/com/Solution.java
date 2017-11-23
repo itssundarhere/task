@@ -28,7 +28,7 @@ public class Solution {
 
 	public void update() throws NumberFormatException, IOException {
 		int flag = 1, flag2 = 1;
-		System.out.println("1.For update \n 2.Not update");
+		System.out.println("1.For update ");
 		flag = Integer.valueOf(bf.readLine());
 		while (flag == 1) {
 			System.out.println("Enter the id which want to be update : ");
@@ -36,7 +36,7 @@ public class Solution {
 			Item obj = session.get(Item.class, id);
 			session.beginTransaction();
 			while (flag2 == 1) {
-				System.out.println("Enter which one want to update 1. for name 2. for quantity\n");
+				System.out.println("one want to update  1. for name 2. for quantity 3. for price \n");
 				int choice = Integer.valueOf(bf.readLine());
 				switch (choice) {
 				case 1: {
@@ -51,6 +51,11 @@ public class Solution {
 					obj.setQty(quantity);
 					break;
 				}
+				case 3: {
+					System.out.println("Enter the price");
+					double price = Double.valueOf(bf.readLine());
+					obj.setPrice(price);
+					break;
 				default:
 					break;
 				}
@@ -60,17 +65,18 @@ public class Solution {
 			session.update(obj);
 			session.getTransaction().commit();
 			session.save(obj);
-			System.out.println("1.For update \n 2.Not update");
-			flag = Integer.valueOf(bf.readLine());
+			/*System.out.println("1.For update ");
+			flag = Integer.valueOf(bf.readLine());*/
 
 		}
 	}
 
 	public void delete() throws NumberFormatException, IOException {
 		int flag = 1, flag2 = 1;
-		System.out.println("1.For delete \n 2.Not update");
+		System.out.println("1.For delete");
 		flag = Integer.valueOf(bf.readLine());
-		while (flag == 1) {
+		switch (flag) {
+		case 1: {
 			System.out.println("Enter the id which want to be update : ");
 			int id = Integer.valueOf(bf.readLine());
 			Item obj = session.get(Item.class, id);
@@ -80,15 +86,20 @@ public class Solution {
 			session.save(obj);
 			System.out.println("1.For delete \n 2.Not delete");
 			flag = Integer.valueOf(bf.readLine());
-
+			break;
+		}
+		default:
+			System.out.println("Wrong choice");
+			break;
 		}
 	}
 
 	public void search() throws NumberFormatException, IOException {
 		int flag = 1, flag2 = 1;
-		System.out.println("1.For search \n 2.Not search");
+		System.out.println("1.For search ");
 		flag = Integer.valueOf(bf.readLine());
-		while (flag == 1) {
+		switch (flag) {
+		case 1: {
 			System.out.println("Enter the id which want to be search : ");
 			int id = Integer.valueOf(bf.readLine());
 			Item obj = session.get(Item.class, id);
@@ -97,10 +108,16 @@ public class Solution {
 				System.out.println("The Id : " + obj.getId());
 				System.out.println("The name : " + obj.getName());
 				System.out.println("The quantity : " + obj.getQty());
+				System.out.println("The price : " + obj.getPrice());
 				session.getTransaction().commit();
 			}
 			System.out.println("1.To search \n 2.Not continue");
 			flag = Integer.valueOf(bf.readLine());
+		}
+			break;
+		default:
+			System.out.println("Worng choice");
+			break;
 		}
 	}
 
@@ -121,18 +138,19 @@ public class Solution {
 				ob.update();
 				break;
 			}
-			case 3:{
+			case 3: {
 				ob.delete();
 				break;
 			}
-			case 4:{
+			case 4: {
 				ob.search();
 				break;
 			}
-			default : break;
+			default:
+				break;
 			}
 		}
-		//session.close();
+		// session.close();
 	}
 
 }
