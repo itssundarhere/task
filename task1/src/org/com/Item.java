@@ -16,22 +16,23 @@ public class Item {
 	private String name;
 	@Column(name = "item_qty")
 	private int qty;
+	@Column(name = "item_price")
+	private double price;
 
 	static int productCount;
 	static {
 		Item.productCount = 0;
 	}
 
-	public Item(int id, String name, int qty) {
+	public Item(int id, String name, int qty,double price) {
 		super();
 		Item.productCount++;
 		this.id = id;
 		this.name = name;
 		this.qty = qty;
+		this.price = price;
 	}
-	public Item(){
-		
-	}
+	public Item(){}
 
 	public int getId() {
 		return id;
@@ -55,5 +56,13 @@ public class Item {
 
 	public void setQty(int qty) {
 		this.qty = qty;
+	}
+	
+	public double getPrice(double price){
+		this.price = price;
+	}
+	
+	public void setPrice(){
+		return price;
 	}
 }
