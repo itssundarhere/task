@@ -1,1 +1,4 @@
-code are in two folders
+code are in two folders for CRUD_BOOK
+
+CRUD ---> Html with search , edit , delete , update
+ORG folder --> Servlet with Hibernate
