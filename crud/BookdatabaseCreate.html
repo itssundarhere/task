@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+</head>
+<body>
+	<h1 align="center">Book_Database</h1>
+	<form method="post" action="create">
+		<div style="width: 320px; margin: 20px auto">
+			<div class="form-group" style="width: 350px; padding-left: 5%">
+				<label>BookId</label> <input type="text" class="form-control" name="bookid" id="bookid" 
+					placeholder="BookId here"> 
+				<label>BookName</label>	<input type="text" class="form-control" name="bookname" id="bookname"
+					placeholder="bookName here"> 
+				<label>AuthorName</label> <input type="text" class="form-control" name="authorname" id="authorname"
+					placeholder="AuthorName here"> 
+				<label>ISBN Number</label> <input type="text" class="form-control" name="isbn" id="isbn"
+					placeholder="ISBN number here"> 
+				<label>Year of Publication</label> <input type="text" class="form-control" name="publicationyear" id="publicationyear"
+					placeholder="PublicationYear here"> 
+				<label>Price</label> <input type="text" class="form-control" name="price" id="price"
+					placeholder="Price here"> 			<div class="container" id="button-id" align="center">
+				<!-- Create button -->
+				<button type="submit" class="btn btn-success">create</button>
+				<!-- Update button -->	
+				<a href="show.html" type="submit" class="btn btn-primary">update</a>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
